@@ -4,6 +4,34 @@ void main(){
 
 }
 
+class MyApp extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        primaryColorBrightness: Brightness.light,
+      ),
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget{
+  MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  SnakeWidget createState() => SnakeWidget();
+}
+
+class SnakeWidget extends State<MyHomePage>{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold();
+  }
+}
+
 class CirclePainter extends CustomPainter{
   void paint(Canvas canvas, Size size) {
     var paint = Paint()
