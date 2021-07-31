@@ -18,8 +18,8 @@ class Service{
     var randomGenerator = new Random();
     int heightOffset = randomGenerator.nextInt(100) + 1;
     int widthOffset = randomGenerator.nextInt(200) + 1;
-    final snakeHeight = screenHeight / 2 + heightOffset;
-    final snakeWidth = screenWidth / 2 + widthOffset;
+    final snakeHeight = 0.0 + heightOffset;
+    final snakeWidth = 0.0 + widthOffset;
     List<double> coordinates = new List.empty(growable: true);
     coordinates.add(snakeHeight);
     coordinates.add(snakeWidth);

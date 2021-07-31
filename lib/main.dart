@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snake/service/service.dart';
 
 void main(){
   runApp(MyApp());
@@ -26,13 +27,18 @@ class MyHomePage extends StatefulWidget{
 }
 
 class SnakeWidget extends State<MyHomePage>{
+  double circleX = 0;
+  double circleY = 0;
   @override
   Widget build(BuildContext context) {
+    Service service = new Service(context);
+    circleX = service.generateSpawnPoint()[0];
+    circleY = service.generateSpawnPoint()[1];
     return Scaffold(
       body: Center(
         child: Center(
           child: CustomPaint(
-            painter: CirclePainter(offsetDeviation: -100, newCircleSize: 10),
+            painter: CirclePainter(X: circleX, Y: circleY),
           ),
         ),
       ),
@@ -41,18 +47,21 @@ class SnakeWidget extends State<MyHomePage>{
 }
 
 class CirclePainter extends CustomPainter{
-  int deviation=0;
-  double circleSize=25.0;
-  CirclePainter({int offsetDeviation=0, double newCircleSize=25.0}){
-    deviation = offsetDeviation;
-    circleSize = newCircleSize;
+  double xCoordinate = 0;
+  double yCoordinate = 0;
+  double circleSize = 100;
+  var _repaint;
+  CirclePainter({repaint,double X=0, double Y=0}): super(repaint: repaint){
+    xCoordinate = X;
+    yCoordinate = Y;
+    _repaint = repaint;
   }
   void paint(Canvas canvas, Size size) {
     var paint = Paint()
       ..color = Colors.teal
       ..strokeWidth = 15;
 
-    Offset center = Offset(size.width / 2 + deviation, size.height / 2 + deviation);
+    Offset center = Offset(xCoordinate, yCoordinate);
 
     canvas.drawCircle(center, circleSize, paint);
   }
