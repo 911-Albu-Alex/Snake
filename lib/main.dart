@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Snake',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         primaryColorBrightness: Brightness.light,
@@ -32,7 +32,7 @@ class SnakeWidget extends State<MyHomePage>{
       body: Center(
         child: Center(
           child: CustomPaint(
-            painter: CirclePainter(100, newCircleSize: 200),
+            painter: CirclePainter(offsetDeviation: -100, newCircleSize: 10),
           ),
         ),
       ),
@@ -43,7 +43,7 @@ class SnakeWidget extends State<MyHomePage>{
 class CirclePainter extends CustomPainter{
   int deviation=0;
   double circleSize=25.0;
-  CirclePainter(int offsetDeviation,{double newCircleSize=25}){
+  CirclePainter({int offsetDeviation=0, double newCircleSize=25.0}){
     deviation = offsetDeviation;
     circleSize = newCircleSize;
   }
