@@ -38,7 +38,22 @@ class SnakeWidget extends State<MyHomePage>{
         Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          color: Colors.yellowAccent,
+          color: Colors.yellow[300],
+        ),
+        Container(
+          padding: const EdgeInsets.all(5.0),
+          alignment: Alignment.bottomCenter,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: <Color>[
+                Colors.black.withAlpha(0),
+                Colors.black12,
+                Colors.black26,
+              ],
+            ),
+          ),
         ),
         CustomPaint(
           painter: CirclePainter(X: circleX, Y:circleY),
@@ -79,7 +94,7 @@ class CirclePainter extends CustomPainter{
   }
   void paint(Canvas canvas, Size size) {
     var paint = Paint()
-      ..color = Colors.teal
+      ..color = Colors.pink
       ..strokeWidth = 15;
 
     Offset center = Offset(xCoordinate, yCoordinate);
