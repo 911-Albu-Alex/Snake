@@ -27,13 +27,14 @@ class MyHomePage extends StatefulWidget{
 }
 
 class SnakeWidget extends State<MyHomePage>{
-  double circleX = 0;
-  double circleY = 0;
-  @override
-  Widget build(BuildContext context) {
-    Service service = new Service(context);
+  var service, circleX, circleY;
+  SnakeWidget(){
+    service = new Service();
     circleX = service.generateSpawnPoint()[0];
     circleY = service.generateSpawnPoint()[1];
+  }
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: Center(
@@ -50,11 +51,9 @@ class CirclePainter extends CustomPainter{
   double xCoordinate = 0;
   double yCoordinate = 0;
   double circleSize = 100;
-  var _repaint;
-  CirclePainter({repaint,double X=0, double Y=0}): super(repaint: repaint){
+  CirclePainter({double X=0, double Y=0}){
     xCoordinate = X;
     yCoordinate = Y;
-    _repaint = repaint;
   }
   void paint(Canvas canvas, Size size) {
     var paint = Paint()
@@ -68,6 +67,6 @@ class CirclePainter extends CustomPainter{
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {
-    return true;
+    return false;
   }
 }

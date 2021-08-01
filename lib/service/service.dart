@@ -2,18 +2,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 
 class Service{
-  var screenHeight;
-  var screenWidth;
-  double get getScreenHeight{
-    return screenHeight;
-  }
-  double get getScreenWidth{
-    return screenWidth;
-  }
-  Service(BuildContext context){
-    screenHeight = MediaQuery.of(context).size.height;
-    screenWidth = MediaQuery.of(context).size.width;
-  }
+  Service(){}
   List<double> generateSpawnPoint(){
     var randomGenerator = new Random();
     int heightOffset = randomGenerator.nextInt(100) + 1;
