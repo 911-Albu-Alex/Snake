@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:snake/service/service.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 void main(){
   runApp(MyApp());
@@ -23,47 +24,70 @@ class MyHomePage extends StatefulWidget{
   SnakeWidget createState() => SnakeWidget();
 }
 
+// class SnakeWidget extends State<MyHomePage> with TickerProviderStateMixin{
+//   var service, circleX, circleY;
+//   var animation;
+//   var controller;
+//   @override
+//   void initState(){
+//     super.initState();
+//     controller = AnimationController(vsync: this, duration: const Duration(seconds: 5));
+//     animation = Tween(begin: 0.0, end: 600.0).animate(controller)
+//      ..addListener((){
+//        setState(() {
+//
+//        });
+//      });
+//     controller.forward();
+//   }
+//   SnakeWidget(){
+//     service = new Service();
+//     circleX = service.generateSpawnPoint()[0];
+//     circleY = service.generateSpawnPoint()[1];
+//   }
+//   @override
+//   Widget build(BuildContext context) {
+//     return Stack(
+//       alignment: Alignment.center,
+//       children: [
+//         Container(
+//           width: MediaQuery.of(context).size.width,
+//           height: MediaQuery.of(context).size.height,
+//           color: Colors.yellow[300],
+//         ),
+//         Container(
+//           padding: const EdgeInsets.all(5.0),
+//           alignment: Alignment.bottomCenter,
+//           decoration: BoxDecoration(
+//             gradient: LinearGradient(
+//               begin: Alignment.topCenter,
+//               end: Alignment.bottomCenter,
+//               colors: <Color>[
+//                 Colors.black.withAlpha(0),
+//                 Colors.black12,
+//                 Colors.black26,
+//               ],
+//             ),
+//           ),
+//         ),
+//         CustomPaint(
+//           painter: CirclePainter(X: circleX, Y:circleY),
+//         ),
+//         CustomPaint(
+//           painter: LinePainter(),
+//         ),
+//       ],
+//     );
+//   }
+//   @override
+//   void dispose(){
+//     super.dispose();
+//     controller.dispose();
+//   }
+// }
+
 class SnakeWidget extends State<MyHomePage>{
-  var service, circleX, circleY;
-  SnakeWidget(){
-    service = new Service();
-    circleX = service.generateSpawnPoint()[0];
-    circleY = service.generateSpawnPoint()[1];
-  }
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          color: Colors.yellow[300],
-        ),
-        Container(
-          padding: const EdgeInsets.all(5.0),
-          alignment: Alignment.bottomCenter,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: <Color>[
-                Colors.black.withAlpha(0),
-                Colors.black12,
-                Colors.black26,
-              ],
-            ),
-          ),
-        ),
-        CustomPaint(
-          painter: CirclePainter(X: circleX, Y:circleY),
-        ),
-        CustomPaint(
-          painter: LinePainter(),
-        ),
-      ],
-    );
-  }
+  WebViewController
 }
 
 class LinePainter extends CustomPainter{
