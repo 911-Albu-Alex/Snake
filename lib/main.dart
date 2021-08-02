@@ -1,5 +1,6 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:snake/service/service.dart';
+import 'package:flutter/services.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 void main(){
@@ -87,7 +88,29 @@ class MyHomePage extends StatefulWidget{
 // }
 
 class SnakeWidget extends State<MyHomePage>{
-  WebViewController
+  late WebViewController controller;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: WebView(
+        initialUrl: 'about:blank',
+        javascriptMode: JavascriptMode.unrestricted,
+        onWebViewCreated: (WebViewController webViewController) {
+          controller = webViewController;
+          _loadHtmlFromAssets();
+        },
+      ),
+    );
+  }
+
+  _loadHtmlFromAssets() async {
+    String fileText = await rootBundle.loadString('web/snake/htmlSnake.html');
+    controller.loadUrl( Uri.dataFromString(
+        fileText,
+        mimeType: 'text/html',
+        encoding: Encoding.getByName('utf-8')
+    ).toString());
+  }
 }
 
 class LinePainter extends CustomPainter{
@@ -131,3 +154,4 @@ class CirclePainter extends CustomPainter{
     return false;
   }
 }
+
