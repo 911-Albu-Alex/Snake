@@ -4,3 +4,9 @@
 
 ## If you have answered *yes* to both questions, then **Snake** is the answer!
 
+> *BETA 0.0*\
+> Added the basic game in html format and adapted it to work in flutter.\
+> Functionalities:
+> * Each time the snake eats an apple, it grows in length by one block and current score is updated by one.
+> * End game functionality with no game over message
+> ![Game overview](https://github.com/911-Albu-Alex/Snake/blob/master/assets/game_overview.png)
