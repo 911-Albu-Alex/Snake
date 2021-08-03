@@ -1,7 +1,6 @@
-import 'dart:convert';
+import 'dart:html';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'dart:ui' as ui;
 
 void main(){
   runApp(MyApp());
@@ -88,28 +87,35 @@ class MyHomePage extends StatefulWidget{
 // }
 
 class SnakeWidget extends State<MyHomePage>{
-  late WebViewController controller;
+  late IFrameElement iFrameElement;
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: WebView(
-        initialUrl: 'about:blank',
-        javascriptMode: JavascriptMode.unrestricted,
-        onWebViewCreated: (WebViewController webViewController) {
-          controller = webViewController;
-          _loadHtmlFromAssets();
-        },
-      ),
+  void initState() {
+    super.initState();
+    iFrameElement = IFrameElement()
+     ..src = "web/snake/htmlSnake.html"
+     ..id = "iframe"
+     ..style.border = "none";
+    //ignore: undefined_prefixed_name
+    ui.platformViewRegistry.registerViewFactory(
+      'iframeElement',
+      (int viewId) => iFrameElement,
     );
   }
-
-  _loadHtmlFromAssets() async {
-    String fileText = await rootBundle.loadString('web/snake/htmlSnake.html');
-    controller.loadUrl( Uri.dataFromString(
-        fileText,
-        mimeType: 'text/html',
-        encoding: Encoding.getByName('utf-8')
-    ).toString());
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.75,
+            width: MediaQuery.of(context).size.width * 0.75,
+            child: HtmlElementView(
+              viewType: 'iframeElement',
+            ),
+          ),
+      ],
+    );
   }
 }
 
