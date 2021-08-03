@@ -9,5 +9,5 @@
 > Functionalities:
 > * Each time the snake eats an apple, it grows in length by one block and current score is updated by one.
 > * End game functionality with no game over message
-> ![Game overview](https://github.com/911-Albu-Alex/Snake/blob/master/assets/game_overview.png =600x338)
+> <img src="https://github.com/911-Albu-Alex/Snake/blob/master/assets/game_overview.png" width="600px" height="338px">
 > ![Gameplay](https://github.com/911-Albu-Alex/Snake/blob/master/assets/gameplay.gif)
