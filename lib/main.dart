@@ -50,48 +50,51 @@ class SnakeWidget extends State<MyHomePage>{
   }
   @override
   Widget build(BuildContext context) {
-    return Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.75,
-            width: MediaQuery.of(context).size.width * 0.75,
-            child: HtmlElementView(
-              viewType: 'iframeElement',
+    return Container(
+      color: Colors.yellow[300],
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.75,
+              width: MediaQuery.of(context).size.width * 0.75,
+              child: HtmlElementView(
+                viewType: 'iframeElement',
+              ),
             ),
-          ),
-          const SizedBox(height: 30),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(4),
-            child: Stack(
-              children: <Widget>[
-                Positioned.fill(
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: <Color>[
-                          Color(0xFF0D47A1),
-                          Color(0xFF1976D2),
-                          Color(0xFF42A5F5),
-                        ],
+            const SizedBox(height: 30),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(4),
+              child: Stack(
+                children: <Widget>[
+                  Positioned.fill(
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: <Color>[
+                            Color(0x9E0D47A1),
+                            Color(0x9C1976D2),
+                            Color(0x9F42A5F5),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                    padding: const EdgeInsets.all(16.0),
-                    primary: Colors.white,
-                    textStyle: const TextStyle(fontSize: 20),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.all(16.0),
+                      primary: Colors.white,
+                      textStyle: const TextStyle(fontSize: 20),
+                    ),
+                    onPressed: reset,
+                    child: const Text('Restart game'),
                   ),
-                  onPressed: reset,
-                  child: const Text('Restart game'),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       );
     }
 }
