@@ -11,3 +11,13 @@
 > * End game functionality with no game over message
 > <img src="https://github.com/911-Albu-Alex/Snake/blob/master/assets/game_overview.png" width="900px" height="507px">
 > <img src="https://github.com/911-Albu-Alex/Snake/blob/master/assets/gameplay.gif" width="900px" height="507px">
+
+>*BETA 0.1*\
+>Changes from previous version:
+> * Increased the speed of the snake
+> * Eng game functionality with "Game over" pop up message
+>Improvements:
+> * Added a restart game button
+> * Added a yellow background color
+> <img src="https://github.com/911-Albu-Alex/Snake/blob/master/assets/game_overview_0_1.png" width="900px" height="507px">
+> <img src="https://github.com/911-Albu-Alex/Snake/blob/master/assets/gameplay_0_1.gif" width="900px" height="507px">
