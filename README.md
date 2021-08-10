@@ -21,3 +21,11 @@
 > * Added a yellow background color
 > <img src="https://github.com/911-Albu-Alex/Snake/blob/master/assets/game_overview_0_1.png" width="900px" height="507px">
 > <img src="https://github.com/911-Albu-Alex/Snake/blob/master/assets/gameplay_0_1.gif" width="900px" height="507px">
+
+>*BETA 0.3*\
+>Welcome back, player! Since last time, there were multiple changes implemented, such as:
+> * The speed of the snake increases exponentially to the score
+> * The color of the snake changes after a certain score(this happens multiple times)
+> * The game now keeps track of your highscore! The highscore will reset after you close the browser
+> <img src="https://github.com/911-Albu-Alex/Snake/blob/master/assets/game_overview_0_3.png" width="900px" height="507px">
+> <img src="https://github.com/911-Albu-Alex/Snake/blob/master/assets/gameplay_0_3.gif" width="900px" height="507px">
